@@ -10,7 +10,7 @@ unsigned long lastButtonPush=0; //vaiabel for å sjekke tiden siden sist trykket
 int debounceDelay=200; // angir tid mellom knappetrykk
 
 unsigned long lastMillis; //vaiabel for å sjekke hva tiden har vært sist
-long interval = 60000; // lengden på tiden en bruker får inne på badet
+long interval = 60000; // lengden på tiden en bruker får inne på badet(her har vi brukt 60 sek for å teste men dette kan endres)
 
 bool paaBadet; //en bool som sier om noen er på badet eller ikke
 bool buttonState1; //definerer om knappen har vært trykket
@@ -225,8 +225,8 @@ void nesteKo(){
 }
 
 //lager en metode for at timeren skal telle
-void timer(){
-   angle = ((millis() - lastMillis) / 1000 * 3);
+void timer(){ 
+   angle = ((millis() - lastMillis) / 1000 * 3); // her ganger vi ut ifra hva 179/ ønsket tid er. I testtilfellet er 179 / 60 = 3.
    if(angle < 179){ 
      myServo.write(angle);
    }
